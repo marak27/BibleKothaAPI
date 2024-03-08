@@ -79,7 +79,8 @@ def input(promt):
 @app.route('/history', methods=['GET'])
 def history():
     history = chat.history
-    print(history[1:])
+    hst = history[1:]
+    return hst
 
 #if __name__ == '__main__':
 #    app.run()
