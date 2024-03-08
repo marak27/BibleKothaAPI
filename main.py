@@ -60,7 +60,6 @@ else:
     print(response)
 
 
-
 chat = model.start_chat(history= mainPromt)
 
 data = []
@@ -78,6 +77,5 @@ def history():
   history = chat.history
   print('history', history[1:])
 
-
 if __name__ == '__main__':
-   app.run()
+    app.run()
