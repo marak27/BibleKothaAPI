@@ -64,18 +64,22 @@ chat = model.start_chat(history= mainPromt)
 
 data = []
 
+@app.route('/')
+def home():
+    return "Hello Bible enthusiast, add /input/<promt> to chat and add /history to check the history"
+
 @app.route('/input/<promt>', methods=['GET'])
 def input(promt):
-  response = chat.send_message(promt, stream=True)
-  for chunk in response:
-    data.append(chunk.text)
-  temp = ' '.join(data)
-  print(temp)
+    response = chat.send_message(promt, stream=True)
+    for chunk in response:
+        data.append(chunk.text)
+    temp = ' '.join(data)
+    return temp
 
-@app.route('/history/', methods=['GET'])
+@app.route('/history', methods=['GET'])
 def history():
-  history = chat.history
-  print('history', history[1:])
+    history = chat.history
+    print(history[1:])
 
-if __name__ == '__main__':
-    app.run()
+#if __name__ == '__main__':
+#    app.run()
